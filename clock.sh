@@ -8,11 +8,12 @@ trap cleanup EXIT
 
 tput civis
 
-TIMER=240
+# Get weather data every 4 hours
+TIMER=240 
 DURATION=240
-DIVIDER="\n\n"
 
-tput smkx  # Enable mouse tracking
+DIVIDER="\n\n" # Divider between displayed info
+
 
 while true 
 do 
@@ -31,10 +32,9 @@ do
   else
     ((TIMER++))
   fi
-  echo"$TEMPERATURE F"
+  echo "$TEMPERATURE F"
   echo -e $DIVIDER
   echo $FORECAST
   sleep 1
 done
 
-tput rmkx  # Disable mouse tracking
