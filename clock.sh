@@ -10,7 +10,7 @@ tput civis
 
 TIMER=240
 DURATION=240
-DIVIDER="\n================================================\n"
+DIVIDER="\n\n"
 
 tput smkx  # Enable mouse tracking
 
@@ -26,14 +26,14 @@ do
     TIMER=0
     URL=$(curl -s "https://api.weather.gov/points/35.227,-80.8431" | jq -r '.properties.forecast')
     DATA=$(curl -s "$URL" | jq -r '.properties.periods[0]')
-    FORECAST=$(echo -e $DATA | jq -r '.detailedForecast')
-    TEMPERATURE=$(echo -e $DATA | jq -r '.temperature')
+    FORECAST=$(echo $DATA | jq -r '.detailedForecast')
+    TEMPERATURE=$(echo $DATA | jq -r '.temperature')
   else
     ((TIMER++))
   fi
-  echo -e "$TEMPERATURE F"
+  echo"$TEMPERATURE F"
   echo -e $DIVIDER
-  echo -e $FORECAST
+  echo $FORECAST
   sleep 1
 done
 
