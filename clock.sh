@@ -23,9 +23,15 @@ do
   if [ "$CURRENT_MINUTE" != "$MINUTE" ]
   then
     MINUTE=$CURRENT_MINUTE
-
+    HOUR=$(date +"%H")
+    M="am"
+    if [ "$((HOUR))" -gt 12 ]
+    then
+      M="pm"
+      HOUR=$((HOUR - 12))
+    fi
     tput clear
-    date +"%H : %M" | figlet
+    date +"$HOUR : $MINUTE $M" | figlet
     echo -e $DIVIDER
     date +"%A, %D"
     echo -e $DIVIDER
