@@ -46,8 +46,7 @@ do
     else
       ((TIMER++))
     fi
-    echo "$TEMPERATURE F"
-    echo -e $DIVIDER
+    echo -e "$TEMPERATURE F\n"
     echo $FORECAST
 
   fi
