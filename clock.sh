@@ -50,7 +50,6 @@ do
     echo $FORECAST
 
   fi
-  
 
   sleep 1
 done
